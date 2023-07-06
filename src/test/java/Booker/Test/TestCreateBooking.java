@@ -1,6 +1,6 @@
-package PetStore.Test;
+package Booker.Test;
 
-import PetStore.Utils.BaseTest;
+import Booker.Utils.BaseTest;
 import org.apache.http.HttpStatus;
 import org.testng.annotations.Test;
 
