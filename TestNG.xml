@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="All Test Suite">
+    <test verbose="2" name="C:/Projects/RestAssuredJava">
+        <classes>
+            <class name="Booker.Test.TestCreateBooking">
+                <methods>
+                    <include name="CreateBooking"/>
+                </methods>
+            </class>
+            <class name="Booker.Test.TestGetBooking">
+                <methods>
+                    <include name="GetBookingsIDs"/>
+                    <include name="GetBookingByID"/>
+                </methods>
+            </class>
+            <class name="Booker.Test.TestUpdateBooking">
+                <methods>
+                    <include name="UpdateBooking"/>
+                    <exclude name="broken"/>
+                </methods>
+            </class>
+        </classes>
+    </test>
+</suite>

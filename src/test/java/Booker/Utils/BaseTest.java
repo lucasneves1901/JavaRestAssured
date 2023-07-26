@@ -10,7 +10,6 @@ import io.restassured.specification.ResponseSpecification;
 import org.testng.annotations.BeforeClass;
 
 import static io.restassured.RestAssured.baseURI;
-import static io.restassured.RestAssured.given;
 
 public class BaseTest {
     public static RequestSpecification reqSpec;
@@ -21,13 +20,20 @@ public class BaseTest {
         baseURI = "https://restful-booker.herokuapp.com";
 
         RequestSpecBuilder reqBuilder = new RequestSpecBuilder();
-        reqBuilder.log(LogDetail.ALL);
-        reqBuilder.setContentType(ContentType.JSON);
+
+        reqBuilder
+                .log(LogDetail.ALL)
+                .setContentType(ContentType.JSON)
+                .addHeader(Constants.AUTH_HEADER_NAME, "Basic " + Token.getToken());
+
         reqSpec = reqBuilder.build();
 
         ResponseSpecBuilder repBuilder = new ResponseSpecBuilder();
-        repBuilder.log(LogDetail.ALL);
-        repBuilder.expectContentType(ContentType.JSON);
+
+        repBuilder
+                .log(LogDetail.ALL)
+                .expectContentType(ContentType.JSON);
+
         repSpec = repBuilder.build();
 
         RestAssured.requestSpecification = reqSpec;
